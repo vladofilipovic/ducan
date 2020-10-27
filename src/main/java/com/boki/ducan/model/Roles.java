@@ -27,7 +27,7 @@ public class Roles {
     @Column (name = "rank", nullable = false)
     private String rank;
     
-    @OneToMany (cascade = CascadeType.ALL)
+    @OneToMany (cascade = CascadeType.ALL, mappedBy = "users")
     private List<Users> users;
     
 }
