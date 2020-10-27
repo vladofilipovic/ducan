@@ -1,10 +1,12 @@
 package com.boki.ducan.model;
-
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,16 +16,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table (name = "carts")
-public class Carts {
+@Table (name = "roles")
+public class Role {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id-cart")
-    private int cartId;
+    @Column(name = "id-role")
+    private int roleId;
     
-    private int quantity;
+    @Column (name = "rank", nullable = false)
+    private String rank;
     
-    private int totalPrice;
+    @OneToMany (cascade = CascadeType.ALL, mappedBy = "users")
+    private List<User> users;
     
 }

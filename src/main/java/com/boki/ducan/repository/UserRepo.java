@@ -1,7 +1,7 @@
 package com.boki.ducan.repository;
-import com.boki.ducan.model.Users;
+import com.boki.ducan.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UsersRepo extends JpaRepository <Users, Integer> {
+public interface UserRepo extends JpaRepository <User, Integer> {
     
 }

@@ -1,7 +1,7 @@
 package com.boki.ducan.repository;
-import com.boki.ducan.model.Roles;
+import com.boki.ducan.model.Cart;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface RolesRepo extends JpaRepository <Roles, Integer> {
+public interface CartRepo extends JpaRepository <Cart, Integer> {
     
 }

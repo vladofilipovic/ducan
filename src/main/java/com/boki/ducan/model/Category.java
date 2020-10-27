@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table (name = "categories")
-public class Categories {
+public class Category {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +29,6 @@ public class Categories {
     private String category;
     
     @OneToMany (cascade = CascadeType.ALL, mappedBy = "categories")
-    private List<Products> products;
+    private List<Product> products;
     
 }

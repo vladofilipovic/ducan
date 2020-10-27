@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table (name = "users")
-public class Users {
+public class User {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,7 +37,7 @@ public class Users {
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="roles-id-role", nullable=false)
-    private Users users;
+    private User users;
            
     
 }
