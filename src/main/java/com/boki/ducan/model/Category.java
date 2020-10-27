@@ -1,5 +1,4 @@
 package com.boki.ducan.model;
-
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -28,7 +27,7 @@ public class Category {
     @Column (name = "category", nullable = false)
     private String category;
     
-    @OneToMany (cascade = CascadeType.ALL, mappedBy = "categories")
+    @OneToMany (cascade = CascadeType.ALL, mappedBy = "category")
     private List<Product> products;
     
 }

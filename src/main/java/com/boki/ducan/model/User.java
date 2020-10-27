@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,7 +23,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id-user")
-    private int usersId;
+    private int userId;
     
     @Column(name = "username", unique = true, nullable = false)
     private String username;
@@ -37,7 +38,9 @@ public class User {
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="roles-id-role", nullable=false)
-    private User users;
-           
+    private Role role;
+         
+    @OneToMany (mappedBy = "users")
+    private Cart cart;
     
 }

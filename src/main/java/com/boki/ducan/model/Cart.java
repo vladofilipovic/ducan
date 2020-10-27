@@ -1,10 +1,13 @@
 package com.boki.ducan.model;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,8 +25,16 @@ public class Cart {
     @Column(name = "id-cart")
     private int cartId;
     
+    @Column(name = "quantity", nullable = false)
     private int quantity;
     
+    @Column(name = "total-price", nullable = false)
     private int totalPrice;
     
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="users-id-user", nullable=false)
+    private User user;
+    
+    @OneToMany (mappedBy = "carts")
+    private Product product;
 }

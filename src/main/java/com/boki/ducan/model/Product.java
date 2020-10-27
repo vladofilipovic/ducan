@@ -1,9 +1,12 @@
 package com.boki.ducan.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,9 +25,19 @@ public class Product {
   @Column(name = "id-product")
   private int productId;
   
+  @Column(name = "name", nullable = false)
   private String name;
   
+  @Column(name = "price", nullable = false)
   private int price;
+  
+  @ManyToOne (fetch = FetchType.LAZY)
+  @JoinColumn(name="categories-id-category", nullable=false)
+  private Category category;
+  
+  @ManyToOne (fetch = FetchType.LAZY)
+  @JoinColumn(name="carts-id-cart", nullable=false)
+  private Cart carts;
   
   
 }
