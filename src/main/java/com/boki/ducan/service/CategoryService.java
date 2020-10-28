@@ -19,15 +19,15 @@ public class CategoryService {
         return repo.findAll();
     }
     
-    public void saveCart(Category category){
+    public void saveCategory(Category category){
         repo.save(category);
     }
     
-    public void getCartById (Integer id){
+    public void getCategoryById (Integer id){
         repo.findById(id);
     }
     
-    public void deleteCart(Integer id){
+    public void deleteCategory(Integer id){
         repo.deleteById(id);
     }
     

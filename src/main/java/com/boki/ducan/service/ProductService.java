@@ -19,15 +19,15 @@ public class ProductService {
         return repo.findAll();
     }
     
-    public void saveCart(Product product){
+    public void saveProduct(Product product){
         repo.save(product);
     }
     
-    public void getCartById (Integer id){
+    public void getProductById (Integer id){
         repo.findById(id);
     }
     
-    public void deleteCart(Integer id){
+    public void deleteProduct(Integer id){
         repo.deleteById(id);
     }
 }

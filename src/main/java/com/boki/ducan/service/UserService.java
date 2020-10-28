@@ -19,15 +19,15 @@ public class UserService {
         return repo.findAll();
     }
     
-    public void saveCart(User user){
+    public void saveUser(User user){
         repo.save(user);
     }
     
-    public void getCartById (Integer id){
+    public void getUserById (Integer id){
         repo.findById(id);
     }
     
-    public void deleteCart(Integer id){
+    public void deleteUser(Integer id){
         repo.deleteById(id);
     }
 }
