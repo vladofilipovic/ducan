@@ -2,6 +2,7 @@ package com.boki.ducan.service;
 import com.boki.ducan.model.User;
 import com.boki.ducan.repository.UserRepo;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,12 +20,12 @@ public class UserService {
         return repo.findAll();
     }
     
-    public void saveUser(User user){
-        repo.save(user);
+    public User saveUser(User user){
+      return repo.save(user);
     }
     
-    public void getUserById (Integer id){
-        repo.findById(id);
+    public Optional<User> getUserById (Integer id){
+      return  repo.findOne(id);
     }
     
     public void deleteUser(Integer id){

@@ -2,6 +2,7 @@ package com.boki.ducan.controller;
 import com.boki.ducan.model.User;
 import com.boki.ducan.service.UserService;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,12 +26,9 @@ public class UserController {
         return service.listAll();
     }
     
-    /*
-    
-     @GetMapping("/{id}")
-    public Korisnici getUserById(@PathVariable Integer id){
-        
-        return service.getKorisnikById(id);
+    @GetMapping("/{id}")
+    public Optional<User> getUserById(@PathVariable Integer id){
+        return service.getUserById(id);
     }
-    */
+    
 }

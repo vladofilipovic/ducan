@@ -19,12 +19,12 @@ public class RoleService {
         return repo.findAll();
     }
     
-    public void saveRole(Role role){
-        repo.save(role);
+    public Role saveRole(Role role){
+        return repo.save(role);
     }
     
-    public void getRoleById (Integer id){
-        repo.findById(id);
+    public Role getRoleById (Integer id){
+       return repo.findOne(id);
     }
     
     public void deleteRole(Integer id){
