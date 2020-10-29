@@ -1,4 +1,5 @@
 package com.boki.ducan.controller;
+import com.boki.ducan.exception.ResourceNotFoundException;
 import com.boki.ducan.model.User;
 import com.boki.ducan.service.UserService;
 import java.util.List;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 @RestController
 @RequestMapping ("/users")
@@ -31,11 +33,14 @@ public class UserController {
         return service.saveUser(user);
     }
     
-    
-    
-  /*  @GetMapping("/{id}")
-    public Optional<User> getUserById(@PathVariable Integer id){
-        return service.getUserById(id).getCart();
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable Integer id){
+        service.deleteUser(id);
     }
-    */
+    
+   /* @GetMapping("/{id}")
+    public Optional<User> getUserById(@PathVariable(value = "userId") Integer id){
+        return service.getUserById(id).orElseThrow(() -> new ResourceNotFoundException("User", "id", id));
+    }*/
+    
 }
