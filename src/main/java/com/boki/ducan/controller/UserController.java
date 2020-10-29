@@ -26,9 +26,9 @@ public class UserController {
         return service.listAll();
     }
     
-    @GetMapping("/{id}")
+  /*  @GetMapping("/{id}")
     public Optional<User> getUserById(@PathVariable Integer id){
-        return service.getUserById(id);
+        return service.getUserById(id).getCart();
     }
-    
+    */
 }

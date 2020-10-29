@@ -24,7 +24,7 @@ public class RoleService {
     }
     
     public Role getRoleById (Integer id){
-       return repo.findOne(id);
+       return repo.findById(id).get();
     }
     
     public void deleteRole(Integer id){

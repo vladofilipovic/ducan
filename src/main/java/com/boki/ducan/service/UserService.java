@@ -24,8 +24,8 @@ public class UserService {
       return repo.save(user);
     }
     
-    public Optional<User> getUserById (Integer id){
-      return  repo.findOne(id);
+    public User getUserById (Integer id){
+      return  repo.findById(id).get();
     }
     
     public void deleteUser(Integer id){

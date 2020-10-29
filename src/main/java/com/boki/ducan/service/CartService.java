@@ -20,12 +20,12 @@ public class CartService {
         return repo.findAll();
     }
     
-    public void saveCart(Cart cart){
-        repo.save(cart);
+    public Cart saveCart(Cart cart){
+        return repo.save(cart);
     }
     
-    public void getCartById (Integer id){
-        repo.findById(id);
+    public Cart getCartById (Integer id){
+        return repo.findById(id).get();
     }
     
     public void deleteCart(Integer id){

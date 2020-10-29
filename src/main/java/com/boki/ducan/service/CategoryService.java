@@ -19,12 +19,12 @@ public class CategoryService {
         return repo.findAll();
     }
     
-    public void saveCategory(Category category){
-        repo.save(category);
+    public Category saveCategory(Category category){
+        return repo.save(category);
     }
     
-    public void getCategoryById (Integer id){
-        repo.findById(id);
+    public Category getCategoryById (Integer id){
+       return repo.findById(id).get();
     }
     
     public void deleteCategory(Integer id){
