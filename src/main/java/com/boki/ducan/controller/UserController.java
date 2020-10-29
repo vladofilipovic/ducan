@@ -38,9 +38,18 @@ public class UserController {
         service.deleteUser(id);
     }
     
-   /* @GetMapping("/{id}")
-    public Optional<User> getUserById(@PathVariable(value = "userId") Integer id){
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable(value = "userId") Integer id)throws ResourceNotFoundException {
+        return service.getUserById(id);
+    }
+    
+    
+    
+     /*@GetMapping("/{id}")
+    public User getUserById(@PathVariable(value = "userId") Integer id){
         return service.getUserById(id).orElseThrow(() -> new ResourceNotFoundException("User", "id", id));
-    }*/
+    }
+    */
+    
     
 }
