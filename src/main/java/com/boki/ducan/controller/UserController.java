@@ -26,6 +26,13 @@ public class UserController {
         return service.listAll();
     }
     
+    @PostMapping("/newUser")
+    public User createUser(@RequestBody User user){
+        return service.saveUser(user);
+    }
+    
+    
+    
   /*  @GetMapping("/{id}")
     public Optional<User> getUserById(@PathVariable Integer id){
         return service.getUserById(id).getCart();
