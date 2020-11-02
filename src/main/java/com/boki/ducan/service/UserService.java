@@ -2,14 +2,13 @@ package com.boki.ducan.service;
 import com.boki.ducan.model.User;
 import com.boki.ducan.repository.UserRepo;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
     
-    UserRepo repo;
+    private final UserRepo repo;
     
     @Autowired
     public UserService(UserRepo repo){

@@ -3,6 +3,7 @@ import com.boki.ducan.exception.ResourceNotFoundException;
 import com.boki.ducan.model.User;
 import com.boki.ducan.service.UserService;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping ("/users")
 public class UserController {
     
-    UserService service;
+    private final UserService service;
+    
+    @Autowired
+    public UserController(UserService service){
+        this.service = service;
+    }
     
     @GetMapping
     public List < User > getAllUsers() {
