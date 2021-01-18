@@ -28,9 +28,9 @@ public class ProductController {
         return service.listAll();
     }
     
-    @PostMapping("createNewProduct")
-    public Product createProduct(@RequestBody Product product){
-        return service.saveProduct(product);
+    @PostMapping("/createNewProduct")
+    public void createProduct(@RequestBody Product product){
+        service.saveProduct(product);
     }
     
     @GetMapping("/{id}")
@@ -39,12 +39,12 @@ public class ProductController {
     }
     
     @PutMapping("/productUpdate{id}")
-    public Product updateProduct(@RequestBody Product product,@PathVariable(value = "productId") Integer id)throws ResourceNotFoundException{
+    public void updateProduct(@RequestBody Product product,@PathVariable(value = "productId") Integer id)throws ResourceNotFoundException{
         Product updatedProduct = service.getProductById(id);
         updatedProduct.setName(product.getName());
         updatedProduct.setPrice(product.getPrice());
         updatedProduct.setCategory(product.getCategory());
         
-        return service.saveProduct(updatedProduct);
+        service.saveProduct(updatedProduct);
     }
 }
