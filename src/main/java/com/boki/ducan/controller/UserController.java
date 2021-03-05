@@ -4,6 +4,7 @@ import com.boki.ducan.model.User;
 import com.boki.ducan.service.UserService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,8 +27,10 @@ public class UserController {
     }
     
     @GetMapping
-    public List < User > getAllUsers() {
-        return service.listAll();
+    public String getAllUsers (Model model) {
+        List <User> users = service.listAll();
+        model.addAttribute("users", users);
+        return "index";
     }
     
     @PostMapping("/newUser")
