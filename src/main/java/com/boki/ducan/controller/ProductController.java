@@ -23,14 +23,14 @@ public class ProductController {
         this.service = service;
     }
     
-    @GetMapping
+    @GetMapping("/allProducts")
     public List <Product> getAllProducts() {
         return service.listAll();
     }
     
-    @PostMapping
-    public Product createProduct(@RequestBody Product product){
-        return service.saveProduct(product);
+    @PostMapping("/createNewProduct")
+    public void createProduct(@RequestBody Product product){
+        service.saveProduct(product);
     }
     
     @GetMapping("/{id}")
@@ -38,13 +38,13 @@ public class ProductController {
         return service.getProductById(id);
     }
     
-    @PutMapping("/{id}")
-    public Product updateProduct(@RequestBody Product product,@PathVariable(value = "productId") Integer id)throws ResourceNotFoundException{
+    @PutMapping("/productUpdate{id}")
+    public void updateProduct(@RequestBody Product product,@PathVariable(value = "productId") Integer id)throws ResourceNotFoundException{
         Product updatedProduct = service.getProductById(id);
         updatedProduct.setName(product.getName());
         updatedProduct.setPrice(product.getPrice());
         updatedProduct.setCategory(product.getCategory());
         
-        return service.saveProduct(updatedProduct);
+        service.saveProduct(updatedProduct);
     }
 }
