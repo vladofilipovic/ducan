@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +25,7 @@ public class Category {
     @Column(name = "id-category")
     private int categoriesId;
     
-    @Column (name = "category", nullable = false)
+    @NotBlank
     private String category;
     
     @OneToMany (cascade = CascadeType.ALL, mappedBy = "category")

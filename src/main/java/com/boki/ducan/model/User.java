@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,15 +26,19 @@ public class User {
     @Column(name = "id-user")
     private int userId;
     
-    @Column(name = "username", unique = true, nullable = false)
+    @NotBlank
+    @Column(name = "username", unique = true)
     private String username;
     
+    @NotBlank
     private String password;
     
-    @Column(name = "first-name", nullable = false)
+    @NotBlank
+    @Column(name = "first-name")
     private String firstName;
     
-    @Column(name = "last-name", nullable = false)
+    @NotBlank
+    @Column(name = "last-name")
     private String lastName;
     
     @ManyToOne(fetch = FetchType.LAZY)

@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,10 +26,10 @@ public class Product {
   @Column(name = "id-product")
   private int productId;
   
-  @Column(name = "name", nullable = false)
+  @NotBlank
   private String name;
   
-  @Column(name = "price", nullable = false)
+  @NotBlank
   private int price;
   
   @ManyToOne (fetch = FetchType.LAZY)
