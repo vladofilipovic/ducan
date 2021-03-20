@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +25,7 @@ public class Role {
     @Column(name = "id-role")
     private int roleId;
     
-    @Column (name = "rank", nullable = false)
+    @NotBlank
     private String rank;
     
     @OneToMany (cascade = CascadeType.ALL, mappedBy = "role")
