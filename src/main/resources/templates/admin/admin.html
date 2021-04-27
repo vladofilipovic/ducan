@@ -10,7 +10,9 @@
         <h3>Napravi proizvod</h3>
         <div id="makeProduct" align="center">
             <form th:action="@{//createNewProduct}" method="post">
-                
+                <input type="text" name="name" th:placeholder="Name"> <br>
+                <input type="integer" name="price" th:placeholder="Price"> <br>
+                <button name="Submit" value="Product" type="Submit" th:text="Kreiraj"></button>
             </form>    
         </div>
     </body>
