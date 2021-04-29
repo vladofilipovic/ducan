@@ -1,4 +1,5 @@
 package com.boki.ducan.model;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -36,5 +37,7 @@ public class Cart {
     private User user;
     
     @OneToMany (mappedBy = "carts")
-    private Product product;
+    private List <Product> product;
+    //list added
+    
 }

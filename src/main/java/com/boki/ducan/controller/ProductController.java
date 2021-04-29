@@ -29,8 +29,6 @@ public class ProductController {
         List <Product> products = service.listAll();
         model.addAttribute("products", products);
         return "cart";
-        
-        
     }
     
     @PostMapping("/createNewProduct")

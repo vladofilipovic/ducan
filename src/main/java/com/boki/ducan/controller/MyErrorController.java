@@ -27,7 +27,7 @@ public class MyErrorController implements ErrorController {
 			}
 		}
 		
-		return "errorpages/error";
+		return "error/error";
 	}
 	
 	@Override
