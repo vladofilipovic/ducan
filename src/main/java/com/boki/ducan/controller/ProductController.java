@@ -4,6 +4,7 @@ import com.boki.ducan.model.Product;
 import com.boki.ducan.service.ProductService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,8 +25,10 @@ public class ProductController {
     }
     
     @GetMapping("/allProducts")
-    public List <Product> getAllProducts() {
-        return service.listAll();
+    public String getAllProducts(Model model) {
+        List <Product> products = service.listAll();
+        model.addAttribute("products", products);
+        return "cart";
     }
     
     @PostMapping("/createNewProduct")
