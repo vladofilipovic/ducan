@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,7 @@ public class Category {
     private int categoriesId;
     
     @NotBlank
+    @Size(min = 2, max = 35)
     private String category;
     
     @OneToMany (cascade = CascadeType.ALL, mappedBy = "category")

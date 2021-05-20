@@ -47,7 +47,6 @@ public class ProductController {
         updatedProduct.setName(product.getName());
         updatedProduct.setPrice(product.getPrice());
         updatedProduct.setCategory(product.getCategory());
-        
         service.saveProduct(updatedProduct);
     }
 }
