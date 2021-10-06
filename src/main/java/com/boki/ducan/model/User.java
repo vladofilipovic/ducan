@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,17 +30,21 @@ public class User {
     
     @NotBlank
     @Column(name = "username", unique = true)
+    @Size(min = 2 , max = 25)
     private String username;
     
     @NotBlank
+    @Size(min = 7, max = 30)
     private String password;
     
     @NotBlank
     @Column(name = "first-name")
+    @Size(min = 2 , max = 25)
     private String firstName;
     
     @NotBlank
     @Column(name = "last-name")
+    @Size(min = 2 , max = 25)
     private String lastName;
     
     @ManyToOne(fetch = FetchType.LAZY)

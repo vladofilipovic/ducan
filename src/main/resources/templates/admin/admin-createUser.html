@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Admin - Kreiranje korisnika</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link th:href="@{/css/main.css}" rel="stylesheet" />
+    </head>
+    <body>
+        <div id="createUser">
+            <h2>Kreiranje korisnika</h2>
+            <form th:action="@{/users/newUser}" th:object="${user}" method="POST">
+              <tr>
+                  <th>Ime</th>
+                  <th>Prezime</th>>
+                  <th>Korisnicko ime</th>
+                  <th>Lozinka</th>
+                  <th>Uloga</th>
+              </tr>
+                <tr>
+                <input type="text" placeholder="First Name" th:field="${user.firstName}">
+                <input type="text" placeholder="Last Name" th:field="${user.lastName}">
+                <input type="text" placeholder="Username" th:field="${user.username}">
+                <input type="password" placeholder="Password" th:field="${user.password}">
+                <input type="text" placeholder="Role" th:field="${user.role}">
+                <button type="submit">Kreiraj</button>
+                </tr>
+            </form>     
+        </div>
+    </body>
+</html>
